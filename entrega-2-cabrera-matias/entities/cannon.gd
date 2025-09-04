@@ -10,7 +10,6 @@ func fire():
 	var projectile_instance: Projectile = projectile_scene.instantiate()
 	projectile_container.add_child(projectile_instance)
 	projectile_instance.set_starting_values(fire_position.global_position, (fire_position.global_position - global_position).normalized())
-	#projectile_instance.connect("delete_requested", self, "_on_projectile_deleted_requested")
 	projectile_instance.delete_requested.connect(_on_projectile_deleted_requested)
 
 func _on_projectile_deleted_requested(projectile):
