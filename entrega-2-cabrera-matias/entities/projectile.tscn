@@ -5,3 +5,4 @@
 
 [node name="Projectile" instance=ExtResource("1_46mfb")]
 texture = ExtResource("2_jfshl")
+speed = 100.0

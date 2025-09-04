@@ -4,6 +4,12 @@ extends Sprite2D
 
 @export var speed: float = 500
 
+var projectile_container: Node
+
+func _set_projectile_container(container: Node):
+	cannon.projectile_container = container
+	projectile_container = container
+
 func _process(delta: float) -> void:
 	var direction := int(Input.is_action_pressed("move_right")) - int(Input.is_action_pressed("move_left"))
 
