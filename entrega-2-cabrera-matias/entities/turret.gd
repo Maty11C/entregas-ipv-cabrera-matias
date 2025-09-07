@@ -8,10 +8,14 @@ var projectile_container: Node
 
 var player
 
-func set_values(player, projectile_container):
+func set_values(viewport, player, projectile_container):
 	self.player = player
 	self.projectile_container = projectile_container
 	$Timer.start()
+	set_random_position(int(viewport.size.x), int(player.position.y))
+
+func set_random_position(x_limit, y_limit):
+	position = Vector2(randi() % x_limit, randi() % y_limit)
 
 func _on_timer_timeout() -> void:
 	fire()
