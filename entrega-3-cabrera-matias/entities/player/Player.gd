@@ -1,19 +1,21 @@
-extends Sprite2D
+extends CharacterBody2D
 
 @onready var cannon: Node = $Cannon
 
 @export var ACCELERATION: float = 20.0
 @export var H_SPEED_LIMIT: float = 600.0
 @export var FRICTION_WEIGHT: float = 0.1
+@export var JUMP_SPEED: float = -50
+@export var GRAVITY: float = 2
 
-var velocity: Vector2 = Vector2.ZERO
+#var velocity: Vector2 = Vector2.ZERO
 var projectile_container: Node
 
 func initialize(projectile_container: Node) -> void:
 	self.projectile_container = projectile_container
 	cannon.projectile_container = projectile_container
 
-func _physics_process(delta: float) -> void:
+func _get_input():
 	# Cannon rotation
 	var mouse_position: Vector2 = get_global_mouse_position()
 	cannon.look_at(mouse_position)
@@ -26,18 +28,17 @@ func _physics_process(delta: float) -> void:
 		cannon.fire()
 	
 	# Player movement
-	var h_movement_direction: int = int(
-		Input.is_action_pressed("move_right")) - int(Input.is_action_pressed("move_left")
-	)
-	
+	var h_movement_direction: int = int(Input.is_action_pressed("move_right")) - int(Input.is_action_pressed("move_left"))
 	if h_movement_direction != 0:
-		velocity.x = clamp(
-			velocity.x + (h_movement_direction * ACCELERATION),
-			-H_SPEED_LIMIT,
-			H_SPEED_LIMIT
-		)
+		velocity.x = clamp(velocity.x + (h_movement_direction * ACCELERATION), -H_SPEED_LIMIT, H_SPEED_LIMIT)
 	else:
-		# Ternary if: {true code} if {condition} else {false code}
-		velocity.x = lerp(velocity.x, 0.0, FRICTION_WEIGHT) if abs(velocity.x) > 1.0 else 0.0
-	
-	position += velocity * delta
+		velocity.x = lerp(velocity.x, 0.0, FRICTION_WEIGHT) if abs(velocity.x) > 1.0 else 0.0 # Ternary if: {true code} if {condition} else {false code}
+		
+	if Input.is_action_just_pressed("jump"):
+		velocity.y = JUMP_SPEED
+
+func _physics_process(delta: float) -> void:
+	_get_input()
+	velocity.y += GRAVITY
+	move_and_slide()
+	#position += velocity * delta
