@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dnc5muoeyfwah"]
+[gd_scene load_steps=10 format=3 uid="uid://dnc5muoeyfwah"]
 
 [ext_resource type="PackedScene" uid="uid://ci0kqc3tscyhk" path="res://entities/player/Player.tscn" id="1"]
 [ext_resource type="Texture2D" uid="uid://cwss7yl8udbui" path="res://assets/textures/background.png" id="2"]
@@ -7,6 +7,8 @@
 [ext_resource type="Script" uid="uid://ertnqm8kd3lw" path="res://entities/enemies/TurretsSpawner.gd" id="5"]
 [ext_resource type="PackedScene" uid="uid://v1qhaoq75saq" path="res://entities/world/floor.tscn" id="6_3dxm6"]
 [ext_resource type="PackedScene" uid="uid://ds5yfy66brht" path="res://entities/world/brick.tscn" id="7_lgr22"]
+[ext_resource type="PackedScene" uid="uid://c73gc8t8jqahn" path="res://entities/world/wall.tscn" id="7_trn2v"]
+[ext_resource type="PackedScene" uid="uid://muiq0shwn68m" path="res://entities/world/climb.tscn" id="9_03owx"]
 
 [node name="Main" type="Node"]
 script = ExtResource("3")
@@ -43,20 +45,32 @@ position = Vector2(1200, 562)
 [node name="Floor3" parent="." instance=ExtResource("6_3dxm6")]
 position = Vector2(2000, 562)
 
+[node name="Wall" parent="." instance=ExtResource("7_trn2v")]
+position = Vector2(-32, 279)
+
+[node name="Wall2" parent="." instance=ExtResource("7_trn2v")]
+position = Vector2(2431, 280)
+
 [node name="Brick" parent="." instance=ExtResource("7_lgr22")]
-position = Vector2(552, 262)
+position = Vector2(709, 263)
 
 [node name="Brick2" parent="." instance=ExtResource("7_lgr22")]
-position = Vector2(896, 263)
+position = Vector2(1206, 261)
 
 [node name="Brick3" parent="." instance=ExtResource("7_lgr22")]
-position = Vector2(897, 178)
+position = Vector2(1207, 170)
 
 [node name="Brick4" parent="." instance=ExtResource("7_lgr22")]
-position = Vector2(1223, 264)
+position = Vector2(1739, 264)
 
 [node name="Brick5" parent="." instance=ExtResource("7_lgr22")]
-position = Vector2(1222, 176)
+position = Vector2(1738, 177)
 
 [node name="Brick6" parent="." instance=ExtResource("7_lgr22")]
-position = Vector2(1222, 95)
+position = Vector2(1738, 84)
+
+[node name="Climb" parent="." instance=ExtResource("9_03owx")]
+position = Vector2(949, 475)
+
+[node name="Climb2" parent="." instance=ExtResource("9_03owx")]
+position = Vector2(1502, 474)

@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://muiq0shwn68m"]
+
+[ext_resource type="Texture2D" uid="uid://dwg3vpmlm24nh" path="res://assets/textures/floor.png" id="1_r7icg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r7icg"]
+size = Vector2(64.3467, 63.6396)
+
+[node name="Climb" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 0.785398
+texture = ExtResource("1_r7icg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 0.785398
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_r7icg")
