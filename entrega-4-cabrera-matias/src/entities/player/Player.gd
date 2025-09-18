@@ -9,6 +9,7 @@ extends CharacterBody2D
 ## https://docs.godotengine.org/es/stable/tutorials/scripting/scene_unique_nodes.html
 @onready var weapon: Node = $"%Weapon"
 @onready var body_animations: AnimationPlayer = $BodyAnimations
+@onready var body_pivot: Node2D = $BodyPivot
 
 @export var ACCELERATION: float = 3750.0 # Lo multiplicamos por delta, asi que es 60.0 / (1.0 / 60.0)
 @export var H_SPEED_LIMIT: float = 600.0
@@ -46,6 +47,7 @@ func _physics_process(delta: float) -> void:
 			-H_SPEED_LIMIT,
 			H_SPEED_LIMIT
 		)
+		body_pivot.scale.x = 1 - 2 * float(h_movement_direction < 0)
 	else:
 		velocity.x = lerp(velocity.x, 0.0, FRICTION_WEIGHT * delta) if abs(velocity.x) > 1 else 0
 	
