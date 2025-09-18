@@ -51,6 +51,10 @@ position = Vector2(-32, 279)
 [node name="Wall2" parent="." instance=ExtResource("7_trn2v")]
 position = Vector2(2431, 280)
 
+[node name="Wall3" parent="." instance=ExtResource("7_trn2v")]
+position = Vector2(331, 369)
+scale = Vector2(0.455159, 7.54841)
+
 [node name="Brick" parent="." instance=ExtResource("7_lgr22")]
 position = Vector2(709, 263)
 
