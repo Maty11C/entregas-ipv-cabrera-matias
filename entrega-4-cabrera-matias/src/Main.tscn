@@ -42,7 +42,7 @@ position = Vector2(112.506, 565.622)
 position = Vector2(31.8359, 298.952)
 
 [node name="Ramp" parent="Environment/Ground" instance=ExtResource("10")]
-position = Vector2(1396.44, 536.07)
+position = Vector2(1398, 595)
 
 [node name="Ramp2" parent="Environment/Ground" instance=ExtResource("10")]
 position = Vector2(270.656, 534.143)

@@ -7,6 +7,7 @@ extends Node2D
 @onready var lifetime_timer: Timer = $LifetimeTimer
 @onready var hitbox: Area2D = $Hitbox
 @onready var projectile_animations: AnimationPlayer = $ProjectileAnimations
+@onready var body_animated: AnimatedSprite2D = $Body
 
 @export var VELOCITY: float = 800.0
 
@@ -30,8 +31,10 @@ func initialize(spawn_position: Vector2, direction: Vector2) -> void:
 	## y volviendo únicos a la escena sus sub-recursos, para que no se mezclen con los otros
 	## hermanos, ya que las animaciones califican como "Resources" y son únicos, y,
 	## por lo tanto, compartidos.
-	projectile_animations.play("fire_start")
-	projectile_animations.queue("fire_loop")
+	body_animated.play("fire_start")
+	body_animated.play("fire_loop") # Pierdo la posibilidad de encolar la animacion "fire_loop" usando animated_sprite
+	#projectile_animations.play("fire_start")
+	#projectile_animations.queue("fire_loop")
 
 
 func _physics_process(delta: float) -> void:
@@ -61,3 +64,7 @@ func _on_hitbox_body_entered(body: Node2D) -> void:
 	if body.has_method("notify_hit"):
 		body.notify_hit()
 	remove()
+#
+#func _play_animation(animation: String) -> void:
+	#if body_animations.has_animation(animation):
+		#body_animations.play(animation)
