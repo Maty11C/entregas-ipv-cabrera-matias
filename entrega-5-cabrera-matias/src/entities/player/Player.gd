@@ -44,17 +44,6 @@ func initialize(_projectile_container: Node = get_parent()) -> void:
 	weapon.projectile_container = projectile_container
 
 
-# El único elemento que queda abstraer de esta función
-# es el manejo del salto. Esta parte del código no va a
-# seguir formando parte del código del player, y, en su lugar
-# lo migraremos al código del estado Jump correspondiente
-func _process_input() -> void:
-	# Jump Action
-	var jump: bool = Input.is_action_just_pressed(&"jump")
-	if jump && is_on_floor_raycasted():
-		velocity.y -= jump_speed
-
-
 # Dado que es un comportamiento común a varios states diferentes,
 # una solución para evitar código repetido es extraer el comportamiento
 # de manejo del disparo del arma a una función para ser llamada
@@ -142,6 +131,7 @@ func notify_hit(amount: int = 1) -> void:
 # para otras cosas, y como sabemos que incorporaremos una barra de salud después
 # es apropiado manejarlo de esta manera.
 func _handle_hit(_amount: int = 1) -> void:
+	print("hit")
 	dead = true
 	hp_changed.emit(0, 1)
 

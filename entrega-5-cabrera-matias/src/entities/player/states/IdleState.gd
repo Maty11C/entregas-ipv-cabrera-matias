@@ -1,20 +1,16 @@
 # Prestar atención al error que tira abajo
 extends PlayerState
 
-
 # Al entrar se activa primero la animación "idle"
 func enter() -> void:
 	character._play_animation(&"idle")
 
-
 func exit() -> void:
 	return
 
-
 func handle_input(event: InputEvent) -> void:
-	# Aquí se podría manejar, por ejemplo, transiciones a estados como Jump
-	pass
-
+	if character.is_on_floor() && event.is_action_pressed("jump"):
+		emit_signal("finished", "jump")
 
 # En esta función vamos a manejar las acciones apropiadas para este estado
 func update(delta: float) -> void:
@@ -41,10 +37,8 @@ func update(delta: float) -> void:
 			else:
 				character._play_animation(&"jump")
 
-
-func _on_animation_finished(anim_name: StringName) -> void:
+func _on_animation_finished(_anim_name: StringName) -> void:
 	return
-
 
 # En este callback manejamos, por el momento, solo los impactos
 func handle_event(event: StringName, value = null) -> void:
