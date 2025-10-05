@@ -68,6 +68,7 @@ states_list = [NodePath("Idle"), NodePath("Walk"), NodePath("Alert"), NodePath("
 
 [node name="Idle" type="Node" parent="StateMachine"]
 script = ExtResource("7_6wtxx")
+state_id = "idle"
 
 [node name="IdleTimer" type="Timer" parent="StateMachine/Idle"]
 
@@ -83,6 +84,7 @@ state_id = "alert"
 script = ExtResource("10_njpiu")
 state_id = "die"
 
+[connection signal="hit" from="." to="StateMachine" method="notify_hit"]
 [connection signal="animation_finished" from="Body" to="StateMachine" method="_on_body_animation_finished"]
 [connection signal="body_entered" from="DetectionArea" to="StateMachine" method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="DetectionArea" to="StateMachine" method="_on_detection_area_body_exited"]
