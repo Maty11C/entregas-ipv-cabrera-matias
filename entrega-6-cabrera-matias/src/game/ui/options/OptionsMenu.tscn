@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cykt5hn0mcf8g" path="res://src/game/ui/options/ActionInput.tscn" id="2_pua75"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t4mfc"]
-bg_color = Color(0.27115998, 0.11688935, 0, 1)
+bg_color = Color(0.7058824, 0.34509805, 0, 0.17254902)
 border_width_left = 2
 border_width_top = 2
 border_width_right = 2
@@ -164,11 +164,17 @@ grow_vertical = 2
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="ActionInput" parent="MainPanel/ScrollContainer/VBoxContainer" instance=ExtResource("2_pua75")]
+[node name="ActionInput1" parent="MainPanel/ScrollContainer/VBoxContainer" instance=ExtResource("2_pua75")]
 layout_mode = 2
+action_input = "A"
+action_name = "Move Left"
 
 [node name="ActionInput2" parent="MainPanel/ScrollContainer/VBoxContainer" instance=ExtResource("2_pua75")]
 layout_mode = 2
+action_input = "D"
+action_name = "Move Right"
 
 [node name="ActionInput3" parent="MainPanel/ScrollContainer/VBoxContainer" instance=ExtResource("2_pua75")]
 layout_mode = 2
+action_input = "W"
+action_name = "Jump"
