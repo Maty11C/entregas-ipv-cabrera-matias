@@ -5,4 +5,5 @@
 2. [Player, proyectiles y torretas](./entrega-2-cabrera-matias)
 3. [Físicas](./entrega-3-cabrera-matias)
 4. [Sprites y Animaciones](./entrega-4-cabrera-matias)
-4. [Arquitecturas, patrones e IA](./entrega-5-cabrera-matias)
+5. [Arquitecturas, patrones e IA](./entrega-5-cabrera-matias)
+6. [UI / UX](./entrega-6-cabrera-matias)
