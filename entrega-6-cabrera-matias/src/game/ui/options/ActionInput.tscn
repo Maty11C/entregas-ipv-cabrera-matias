@@ -1,0 +1,51 @@
+[gd_scene load_steps=3 format=3 uid="uid://cykt5hn0mcf8g"]
+
+[ext_resource type="Script" uid="uid://da73fafjuahcm" path="res://src/game/ui/options/ActionInput.gd" id="1_nk7um"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6lwm8"]
+content_margin_left = 2.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+bg_color = Color(0.103743516, 0.103743546, 0.10374347, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[node name="ActionInput" type="PanelContainer"]
+physics_interpolation_mode = 0
+anchors_preset = -1
+offset_right = 128.0
+offset_bottom = 34.0
+scale = Vector2(1.193635, 1.0488921)
+size_flags_vertical = 3
+script = ExtResource("1_nk7um")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="PanelInput" type="PanelContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_6lwm8")
+
+[node name="Input" type="Label" parent="MarginContainer/HBoxContainer/PanelInput"]
+layout_mode = 2
+text = "A"
+
+[node name="PanelAction" type="PanelContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_6lwm8")
+
+[node name="Action" type="Label" parent="MarginContainer/HBoxContainer/PanelAction"]
+layout_mode = 2
+text = "Move Left"
