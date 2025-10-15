@@ -16,17 +16,19 @@ extends Node
 ## Se puede revisar la propiedad Control.mouse_filter en el inspector y en
 ## la documentación para experimentar
 
+@onready var options_menu: Control = $CanvasLayer/Container/OptionsMenu
+
 @export var level_manager_scene: PackedScene
 @export var mouse_cursor: Texture
-
 
 func _ready() -> void:
 	Input.set_custom_mouse_cursor(mouse_cursor)
 
-
 func _on_start_button_pressed() -> void:
 	get_tree().change_scene_to_packed(level_manager_scene)
 
+func _on_options_button_pressed() -> void:
+	options_menu.show()
 
 func _on_exit_button_pressed() -> void:
 	get_tree().quit()

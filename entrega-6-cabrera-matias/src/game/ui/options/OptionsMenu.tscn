@@ -1,5 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://w5c55mc834hb"]
+[gd_scene load_steps=10 format=3 uid="uid://w5c55mc834hb"]
 
+[ext_resource type="Script" uid="uid://3xmhesaqlbq3" path="res://src/game/ui/options/OptionsMenu.gd" id="1_kwi6e"]
 [ext_resource type="FontFile" path="res://assets/fonts/Default-Medium.tres" id="1_piqtb"]
 [ext_resource type="PackedScene" uid="uid://cykt5hn0mcf8g" path="res://src/game/ui/options/ActionInput.tscn" id="2_pua75"]
 
@@ -83,6 +84,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_kwi6e")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -178,3 +180,5 @@ action_name = "Move Right"
 layout_mode = 2
 action_input = "W"
 action_name = "Jump"
+
+[connection signal="pressed" from="MainPanel/ReturnButton" to="." method="hide"]
