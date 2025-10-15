@@ -182,7 +182,7 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_tkluq")
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxEmpty_a078r")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_a078r")
-text = "REPLACE THIS NAME"
+text = "Guardian of the Light"
 label_settings = SubResource("LabelSettings_t4mfc")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -265,6 +265,7 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_a078r")
 text = "Exit"
 
 [node name="OptionsMenu" parent="CanvasLayer/Container" instance=ExtResource("11_a078r")]
+visible = false
 layout_mode = 1
 
 [connection signal="pressed" from="CanvasLayer/Container/Buttons/StartButton" to="." method="_on_start_button_pressed"]
