@@ -176,8 +176,6 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="PauseMenu" parent="UILayer" instance=ExtResource("3_xcfqc")]
-grow_horizontal = 2
-grow_vertical = 2
 
 [node name="VictoryMenu" parent="UILayer" instance=ExtResource("4_ilqdu")]
 grow_horizontal = 2
@@ -494,6 +492,7 @@ callbacks = Array[ExtResource("14_uyki1")]([SubResource("Resource_lbp3h"), SubRe
 position = Vector2(-0.75, -351.5)
 shape = SubResource("RectangleShape2D_wqx7g")
 
+[connection signal="return_requested" from="UILayer/PauseMenu" to="." method="_on_return_requested"]
 [connection signal="next_selected" from="UILayer/VictoryMenu" to="." method="_on_level_won"]
 [connection signal="return_selected" from="UILayer/VictoryMenu" to="." method="_on_return_requested"]
 [connection signal="retry_selected" from="UILayer/DefeatMenu" to="." method="_on_restart_requested"]
